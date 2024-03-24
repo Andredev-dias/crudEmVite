@@ -1,9 +1,14 @@
-import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet'
-import { useState } from "react";
+import { useState } from 'react';
+import 'leaflet/dist/leaflet.css';
+import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
+import "leaflet-defaulticon-compatibility";
+import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
 
 import Menu from "./components/Menu"
 import style from "./Contact.module.css"
 export const Contact = () => {
+  const geoData = ({ lat: -25.3721227, lng: -49.2151926 });
+
   const defaultPhoneNumber = '5141999994084';
   const [formData, setFormData] = useState({
     name: '',
@@ -35,16 +40,18 @@ export const Contact = () => {
         <div>
           <h3>Map</h3>
           <div className={style.wrapMap}>
-                  <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+                  <MapContainer center={[geoData.lat, geoData.lng]} zoom={13} scrollWheelZoom={false} style={{width: "100%", height: "100%"}}>
                     <TileLayer
                       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <Marker position={[51.505, -0.09]}>
-                      <Popup>
-                        A pretty CSS3 popup. <br /> Easily customizable.
-                      </Popup>
-                    </Marker>
+                     {geoData.lat && geoData.lng && (
+                        <Marker position={[geoData.lat, geoData.lng]}>
+                            <Popup>
+                              <a target='_blank' href="https://www.google.com.br/maps/place/R.+dos+Prov%C3%A9rbios,+160+-+Santa+C%C3%A2ndida,+Curitiba+-+PR,+82630-220/@-25.3721276,-49.2126177,17z/data=!3m1!4b1!4m6!3m5!1s0x94dce61807d25a9f:0xfc49a852e8e4aaf!8m2!3d-25.3721276!4d-49.2126177!16s%2Fg%2F11csc5f70g?entry=ttu">Entre no Google maps</a>
+                            </Popup>
+                        </Marker>
+                    )}
                   </MapContainer>
           </div>
         </div>
