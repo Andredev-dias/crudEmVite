@@ -1,0 +1,44 @@
+:root {
+  --text-light: rgba(255, 255, 255, 0.87);
+  --text-dark: #242424;
+  --color-text1: #646cffd7;
+  --color-text2: #61dafbd5;
+  --bg-white: rgba(255, 255, 255, 0.87);
+  --bg-dark: #242424;
+  --bg02-light-dark: #4d4d4d;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-light);
+  background-color: var(--bg-dark);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button {
+  opacity: 0.8;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
