@@ -2,7 +2,14 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+import { Link } from 'react-router-dom'
+
+
 function App() {
+
+  // const handleLogin = () => {
+  //   console.log("opa")
+  // }
 
   return (
     <>
@@ -27,7 +34,8 @@ function App() {
               <label htmlFor="password">Senha:</label>
               <input type="password" />
             </div>
-            <button>Entrar</button>
+            {/* <button onClick={handleLogin}>Entrar</button> */}
+           <Link to="/gallery">Entrar</Link>
           </form>
         </div>
 
